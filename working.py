@@ -2,10 +2,14 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def home():
-    return {"Data":"Testing"}
+inventory = {
+    1: {
+        "name": "Honey",
+        "price": "8.99",
+        "brand": "ABC"
+    }
+}
 
-@app.get("/about")
-def about():
-    return {"Data":"About"}
+@app.get("/get-item/{item_id}")
+def get_item(item_id: int):
+    return inventory [item_id]
