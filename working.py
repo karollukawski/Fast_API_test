@@ -10,6 +10,6 @@ inventory = {
     }
 }
 
-@app.get("/get-item/{item_id}")
-def get_item(item_id: int):
+@app.get("/get-item/{item_id}/{name}")
+def get_item(item_id: int, name: str = None):
     return inventory [item_id]
